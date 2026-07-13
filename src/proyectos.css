@@ -1,0 +1,15 @@
+.proyectos {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(15, 19, 28);
+    border-radius: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+}
+
+.proyectos h2 {
+    align-self: flex-start;
+    color: #4D6290;
+}
