@@ -1,9 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import './contacto.css';
 
 function Contacto() {
+    const [nombre, setNombre] = useState('');
+    const [email, setEmail] = useState('');
+    const [asunto, setAsunto] = useState('');
     const [mensaje, setMensaje] = useState('');
+    const [mostrarMensajeExito, setMostrarMensajeExito] = useState(false);
     const maxChar = 500;
+    const [state, handleSubmit] = useForm("mzdnbwvp");
+    const mensajeDeEnvio = "Mensaje enviado correctamente";
+    
+    useEffect(() => {
+        if (state.succeeded) {
+            setNombre('');
+            setEmail('');
+            setAsunto('');
+            setMensaje('');
+            setMostrarMensajeExito(true);
+
+            const timeoutId = window.setTimeout(() => {
+                setMostrarMensajeExito(false);
+            }, 4000);
+
+            return () => window.clearTimeout(timeoutId);
+        }
+    }, [state.succeeded]);
 
     const handleMensajeChange = (event) => {
         const valor = event.target.value;
@@ -14,23 +37,37 @@ function Contacto() {
         <section className="contacto">
             <div className='seccion-contacto'>
                 <h2>Contacto</h2>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="inputs">
-                        <input type="text" placeholder="Nombre" required />
-                        <input type="email" placeholder="Email" required />
+                        <input type="text" name="nombre" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
+                        <ValidationError prefix="Nombre" field="nombre" errors={state.errors}/>
+                        
+                        <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </div>
-                    <input type="text" placeholder="Asunto" required className='asunto'/>
+                    <input type="text" name="asunto" placeholder="Asunto" value={asunto} onChange={(e) => setAsunto(e.target.value)} required className='asunto'/>
+                    <ValidationError prefix="Asunto" field="asunto" errors={state.errors}/>
                     <div className='textarea-wrapper'>
                         <textarea
+                            name="mensaje"
                             placeholder="Mensaje"
                             value={mensaje}
                             onChange={handleMensajeChange}
                         />
+                        <ValidationError prefix="Mensaje" field="email" errors={state.errors} />
                         <p className={mensaje.length >= maxChar ? "contador-rojo" : "contador-gris"}>
                             {mensaje.length}/{maxChar}
                         </p>
                     </div>
-                    <button type="submit">Enviar mensaje</button>
+                    <div className='boton-mensaje'> 
+                        <button type="submit" disabled={state.submitting}>{state.submitting ? "Enviando..." : "Enviar mensaje"}</button>
+                        {state.succeeded && (
+                            <div className={`estado-mensaje ${mostrarMensajeExito ? 'visible' : 'hidden'}`}>
+                                <p className='estadoMensaje'>{mensajeDeEnvio}</p>
+                                <img src='src/assets/greencheck.svg' className='greencheck' alt='check' />
+                            </div>
+                        )}
+                    </div>
                 </form>
                 <div className='divisor'></div>
             </div>

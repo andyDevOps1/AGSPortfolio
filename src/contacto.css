@@ -64,6 +64,7 @@ textarea {
     resize: none;
     transition: .35s;
     padding-top: 14px;
+    font-family: Inter;
 }
 
 .textarea-wrapper {
@@ -93,6 +94,42 @@ input::placeholder, textarea::placeholder {
 
 input:hover, textarea:hover {
     border-color: #4D6290;
+}
+
+.boton-mensaje {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.boton-mensaje p {
+    font-size: 14px;
+}
+
+.estado-mensaje {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.estado-mensaje.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.estado-mensaje.hidden {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+.boton-mensaje img {
+    width: 20px;
+    height: 20px;
 }
 
 .seccion-contacto button {
