@@ -3,9 +3,7 @@
 .hero-banner{
     position:relative;
     width:100%;
-    height:72vh;
-    min-height:520px;
-    max-height:900px;
+    min-height: 100vh;
     overflow:hidden;
     background:#000;
 }
@@ -111,7 +109,7 @@ nav {
     justify-content: center;
     gap: 8px;
 
-    width: 475px;
+    width: 490px;
     height: 50px;
 
     font-family: Inter, sans-serif;
@@ -127,10 +125,12 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
 
-    transition: all .35s ease;
-
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+    isolation: isolate;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 nav a {
@@ -141,11 +141,12 @@ nav a {
     white-space: nowrap;
 
     padding: 7px 16px;
+    border: 2px solid transparent;
     border-radius: 50px;
 
     color: aliceblue;
     text-decoration: none;
-    transition: background 0.45s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
 nav a:hover {
@@ -154,8 +155,25 @@ nav a:hover {
         rgba(75, 87, 110, 0.65),
         rgba(42, 53, 72, 0.65)
     );
+    border-color: aliceblue;
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+nav a:active {
+    background: linear-gradient(
+        135deg,
+        rgba(67, 76, 180, 0.9),
+        rgba(41, 48, 115, 0.9)
+    );
+
+    border-color: rgba(255, 255, 255, 0.8);
+
+    transform: scale(0.97);
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.3),
+        0 0 18px rgba(84, 96, 230, 0.35);
 }
 
 /* Responsive */

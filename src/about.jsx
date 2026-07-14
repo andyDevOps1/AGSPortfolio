@@ -4,7 +4,7 @@ import './about.css';
 function About() {
     
     return (
-        <div className="about">
+        <section id="sobre-mi" className="about">
             <div className="photo-card">
                 <img src='src/assets/fotoPerfil.png' alt="Andy García Sánchez" />
             </div>
@@ -30,9 +30,8 @@ function About() {
                     Apasionado por la creación de aplicaciones web interactivas y funcionales, con un enfoque en la experiencia del usuario y el rendimiento. 
                     Siempre en busca de aprender nuevas tecnologías y mejorar mis habilidades para ofrecer soluciones innovadoras y eficientes.
                 </p>
-            </div>
-            
-        </div>    
+            </div> 
+        </section>    
     );
 }
 

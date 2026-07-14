@@ -23,7 +23,7 @@ function Tecnologias() {
   const tecnologiasDuplicadas = [...tecnologias, ...tecnologias];
 
   return (
-    <section className="tecnologias">
+    <section id="tecnologias" className="tecnologias">
       <h2>Tecnologías</h2>
       <div className="tecnologias-viewport">
         <div className="tecnologias-track">
