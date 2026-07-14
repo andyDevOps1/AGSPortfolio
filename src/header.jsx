@@ -16,6 +16,13 @@ function Header (){
           alt="AGS Software Engineering"
         />
 
+        <nav>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#tecnologias">Tecnologías</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
         <div className="hero-content">
           <h1>Andy García Sánchez</h1>
           <p>Software Engineer</p>

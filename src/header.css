@@ -99,6 +99,64 @@
     color:rgba(255, 255, 255, 0.85);
 }
 
+/* Navigation Bar */
+nav {
+    position: absolute;
+    top: 32px;
+    right: 42px;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 475px;
+    height: 50px;
+
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(15, 22, 36, 0.1) 0%,
+        rgba(12, 19, 32, 0.2) 50%,
+        rgba(10, 16, 28, 0.3) 100%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+
+    transition: all .35s ease;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;
+
+    padding: 7px 16px;
+    border-radius: 50px;
+
+    color: aliceblue;
+    text-decoration: none;
+    transition: background 0.45s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+nav a:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(75, 87, 110, 0.65),
+        rgba(42, 53, 72, 0.65)
+    );
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
 
 /* Responsive */
 
@@ -108,7 +166,6 @@
         letter-spacing:.25rem;
     }
 }
-
 
 @media(max-width:900px){
     .hero-banner{
