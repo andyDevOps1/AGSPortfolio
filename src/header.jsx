@@ -1,6 +1,9 @@
-import { useState } from 'react'
 import agujeroVid from './assets/agujero_negro.mp4'
 import ags_logo from './assets/ags_logo.png'
+import bbddIcon from './assets/bbdd.svg'
+import desarrolloIcon from './assets/desarrollo.svg'
+import iaIcon from './assets/ia.svg'
+import uiUxIcon from './assets/ui-ux.svg'
 import './header.css'
 
 function Header (){
@@ -24,8 +27,29 @@ function Header (){
         </nav>
 
         <div className="hero-content">
-          <h1>Andy García Sánchez</h1>
-          <p>Software Engineer</p>
+            <h1>Andy García Sánchez</h1>
+            <p>Software Engineer</p>
+            <div className="hero-tags">
+                <span>
+                    <img src={bbddIcon} alt="" />
+                    Bases de datos
+                </span>
+
+                <span>
+                    <img src={desarrolloIcon} alt="" />
+                    Web y nativo
+                </span>
+
+                <span>
+                    <img src={iaIcon} alt="" />
+                    IA
+                </span>
+
+                <span>
+                    <img src={uiUxIcon} alt="" />
+                    UI/UX
+                </span>
+            </div>
         </div>
       </section>
     );
