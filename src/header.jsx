@@ -19,7 +19,7 @@ function Header (){
           alt="AGS Software Engineering"
         />
 
-        <nav>
+        <nav className='header-bar'>
             <a href="#sobre-mi">Sobre mí</a>
             <a href="#proyectos">Proyectos</a>
             <a href="#tecnologias">Tecnologías</a>
