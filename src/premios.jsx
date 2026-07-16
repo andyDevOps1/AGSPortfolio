@@ -12,14 +12,14 @@ function Premios() {
             <h2>Premios y reconocimientos</h2>
             <div className='premios-lista'>
                 {premios.map((premios, index) => (
-                    <div key={index} className='premios-card'>
-                        <img src={premios.icono} alt={premios.tipo} />
+                    <article key={index} className='premios-card'>
+                        <img src={premios.icono} alt="" />
                         <div className='premios-info'>
                             <h3>{premios.nombre}</h3>
                             <p>{premios.razon}</p>
                             <p className='fecha'>{premios.fecha}</p>
                         </div>
-                    </div>
+                    </article>
                 ))}
             </div>
         </section>
