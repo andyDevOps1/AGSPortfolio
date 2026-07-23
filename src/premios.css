@@ -15,24 +15,30 @@
 }
 
 .premios-lista {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
+    align-items: stretch;
 }
 
 .premios-card {
-    display: flex;
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
     align-items: center;
 
-    gap: clamp(12px, 2vw, 18px);
-    width: calc((100% - 48px) / 4);
+    width: 100%;
     min-width: 0;
-    padding: clamp(14px, 2vw, 20px);
+    box-sizing: border-box;
+
+    gap: 12px;
+    padding: 16px;
+
     border: 2px solid #4D6290;
     border-radius: 16px;
+
     background-color: rgba(255, 255, 255, 0.03);
-    transition: 
+
+    transition:
         transform 0.35s ease,
         background-color 0.35s ease,
         box-shadow 0.35s ease;
@@ -58,6 +64,8 @@
 
 .premios-info {
     min-width: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .premios-info h3,
@@ -84,37 +92,30 @@
 
 /* Responsive */
 
-/* Portátil y tablet grande: 2 cards por fila */
+/* Portátil y tablet grande: 2 columnas */
 @media (max-width: 1200px) {
-    .premios-card {
-        width: calc((100% - 16px) / 2);
+    .premios-lista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-/* Tablet: 1 card por fila antes de que el contenido se comprima */
-@media (max-width: 850px) {
-    .premios-card {
-        width: 100%;
-    }
-}
-
-/* Móvil */
-@media (max-width: 600px) {
-    .premios-card img {
-        width: 68px;
-        height: 68px;
+/* Tablet y móvil: 1 columna */
+@media (max-width: 650px) {
+    .premios-lista {
+        grid-template-columns: 1fr;
     }
 }
 
 /* Móvil pequeño */
 @media (max-width: 400px) {
     .premios-card {
+        grid-template-columns: 68px minmax(0, 1fr);
+        gap: 10px;
         padding: 14px;
-        gap: 8px;
     }
 
     .premios-card img {
-        width: 58px;
-        height: 58px;
+        width: 68px;
+        height: 68px;
     }
 }
