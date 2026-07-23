@@ -95,7 +95,7 @@ function Contacto() {
                         </div>    
                         <div className='rrss'>
                             <a href='https://www.instagram.com/andy.grciia' target='_blank' rel='noopener noreferrer' className='img-card'>
-                                <img src='src/assets/email-rrss.png' alt='Gmail' />
+                                <img src='src/assets/instagram-rrss.svg' alt='Gmail' />
                             </a>
                             <div className='texto-img'>    
                                 <h3>Instagram</h3>
