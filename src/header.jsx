@@ -28,7 +28,7 @@ function Header (){
 
         <div className="hero-content">
             <h1>Andy García Sánchez</h1>
-            <p>Software Engineer</p>
+            <p>Ingeniería de Software</p>
             <div className="hero-tags">
                 <span>
                     <img src={bbddIcon} alt="" />
