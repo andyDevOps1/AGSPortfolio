@@ -95,7 +95,7 @@ function Contacto() {
                         </div>
                         <div className='texto-img'>
                             <h3>Gmail</h3>
-                            <p>Próximamente</p>
+                            <p>andygarciasanchez.dev@gmail.com</p>
                         </div>
                     </div>
                     <div className='rrss'>
