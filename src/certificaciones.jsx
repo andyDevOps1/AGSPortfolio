@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import './certificaciones.css'
+import './certificaciones.css';
+import az900 from './assets/az-900.png';
 
 function Certificaciones() {
     const [certificaciones] = useState([
-        { nombre: 'Microsoft Azure', tipo: 'AZ-900 Fundamentals', icono: 'src/assets/az-900.png' }
+        { nombre: 'Microsoft Azure', tipo: 'AZ-900 Fundamentals', icono: az900 }
     ]);
 
     return (

@@ -1,24 +1,37 @@
-import {useState} from 'react';
-import './tecnologias.css'
+import { useState } from 'react';
+import './tecnologias.css';
+import reactIcon from './assets/react.svg';
+import javascriptIcon from './assets/javascript.svg';
+import htmlIcon from './assets/html.svg';
+import cssIcon from './assets/css.svg';
+import nodejsIcon from './assets/nodejs.svg';
+import npmIcon from './assets/npm.svg';
+import gitIcon from './assets/git.svg';
+import githubIcon from './assets/github.svg';
+import viteIcon from './assets/vite.svg';
+import angularIcon from './assets/angular.svg';
+import postgresqlIcon from './assets/postgresql.svg';
+import dockerIcon from './assets/docker.svg';
+import pnpmIcon from './assets/pnpm.svg';
+import vercelIcon from './assets/vercel.svg';
 
 function Tecnologias() {
   const [tecnologias] = useState([
-    { nombre: 'React', icono: 'src/assets/react.svg' },
-    { nombre: 'JavaScript', icono: 'src/assets/javascript.svg' },
-    { nombre: 'HTML5', icono: 'src/assets/html.svg' },
-    { nombre: 'CSS3', icono: 'src/assets/css.svg' },
-    { nombre: 'Node.js', icono: 'src/assets/nodejs.svg' },
-    { nombre: 'npm', icono: 'src/assets/npm.svg' },
-    { nombre: 'Git', icono: 'src/assets/git.svg' },
-    { nombre: 'GitHub', icono: 'src/assets/github.svg' },
-    { nombre: 'Vite', icono: 'src/assets/vite.svg' },
-    { nombre: 'Angular', icono: 'src/assets/angular.svg' },
-    { nombre: 'PostgreSQL', icono: 'src/assets/postgresql.svg' },
-    { nombre: 'Docker', icono: 'src/assets/docker.svg' },
-    { nombre: 'Pnpm', icono: 'src/assets/pnpm.svg' },
-    { nombre: 'Vercel', icono: 'src/assets/vercel.svg' }
-]);
-
+    { nombre: 'React', icono: reactIcon },
+    { nombre: 'JavaScript', icono: javascriptIcon },
+    { nombre: 'HTML5', icono: htmlIcon },
+    { nombre: 'CSS3', icono: cssIcon },
+    { nombre: 'Node.js', icono: nodejsIcon },
+    { nombre: 'npm', icono: npmIcon },
+    { nombre: 'Git', icono: gitIcon },
+    { nombre: 'GitHub', icono: githubIcon },
+    { nombre: 'Vite', icono: viteIcon },
+    { nombre: 'Angular', icono: angularIcon },
+    { nombre: 'PostgreSQL', icono: postgresqlIcon },
+    { nombre: 'Docker', icono: dockerIcon },
+    { nombre: 'Pnpm', icono: pnpmIcon },
+    { nombre: 'Vercel', icono: vercelIcon }
+  ]);
 
   const tecnologiasDuplicadas = [...tecnologias, ...tecnologias];
 

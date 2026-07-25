@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import './contacto.css';
+import greencheck from './assets/greencheck.svg';
+import githubIcon from './assets/github.svg';
+import emailRrss from './assets/email-rrss.png';
+import instagramRrss from './assets/instagram-rrss.svg';
+import discordRrss from './assets/discord-rrss.svg';
 
 function Contacto() {
     const [nombre, setNombre] = useState('');
@@ -11,7 +16,7 @@ function Contacto() {
     const maxChar = 500;
     const [state, handleSubmit] = useForm("mzdnbwvp");
     const mensajeDeEnvio = "Mensaje enviado correctamente";
-    
+
     useEffect(() => {
         if (state.succeeded) {
             setNombre('');
@@ -41,7 +46,7 @@ function Contacto() {
                     <div className="inputs">
                         <input type="text" name="nombre" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
                         <ValidationError prefix="Nombre" field="nombre" errors={state.errors}/>
-                        
+
                         <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                         <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </div>
@@ -59,12 +64,12 @@ function Contacto() {
                             {mensaje.length}/{maxChar}
                         </p>
                     </div>
-                    <div className='boton-mensaje'> 
+                    <div className='boton-mensaje'>
                         <button type="submit" disabled={state.submitting}>{state.submitting ? "Enviando..." : "Enviar mensaje"}</button>
                         {state.succeeded && (
                             <div className={`estado-mensaje ${mostrarMensajeExito ? 'visible' : 'hidden'}`}>
                                 <p className='estadoMensaje'>{mensajeDeEnvio}</p>
-                                <img src='src/assets/greencheck.svg' className='greencheck' alt='check' />
+                                <img src={greencheck} className='greencheck' alt='check' />
                             </div>
                         )}
                     </div>
@@ -74,46 +79,45 @@ function Contacto() {
             <div className='seccion-rrss'>
                 <h2>Redes sociales</h2>
                 <p>Contacta conmigo en GitHub, Gmail, Instagram y Discord.</p>
-                    <div className='redes'>
-                        <div className='rrss'>
-                            <a href='https://github.com/andyDevOps1' target='_blank' rel='noopener noreferrer' className='img-card'>
-                                <img src='src/assets/github.svg' alt='GitHub' />
-                            </a>
-                            <div className='texto-img'>   
-                                <h3>GitHub</h3>
-                                <p>/andyDevOps1</p>
-                            </div>
-                        </div>   
-                        <div className='rrss'>
-                            <div className='img-card'> 
-                                <img src='src/assets/email-rrss.png'></img>
-                            </div>    
-                            <div className='texto-img'>
-                                <h3>Gmail</h3>
-                                <p>Próximamente</p>
-                            </div>
-                        </div>    
-                        <div className='rrss'>
-                            <a href='https://www.instagram.com/andy.grciia' target='_blank' rel='noopener noreferrer' className='img-card'>
-                                <img src='src/assets/instagram-rrss.svg' alt='Gmail' />
-                            </a>
-                            <div className='texto-img'>    
-                                <h3>Instagram</h3>
-                                <p>@andy.grciia</p>
-                            </div>
-                        </div>     
-                        <div className='rrss'>
-                            <div className='img-card'>
-                                <img src='src/assets/discord-rrss.svg'></img>
-                            </div>
-                            <div className='texto-img'>
-                                <h3>Discord</h3>
-                                <p>kiminatsy7</p>
-                            </div>    
+                <div className='redes'>
+                    <div className='rrss'>
+                        <a href='https://github.com/andyDevOps1' target='_blank' rel='noopener noreferrer' className='img-card'>
+                            <img src={githubIcon} alt='GitHub' />
+                        </a>
+                        <div className='texto-img'>
+                            <h3>GitHub</h3>
+                            <p>/andyDevOps1</p>
                         </div>
                     </div>
+                    <div className='rrss'>
+                        <div className='img-card'>
+                            <img src={emailRrss}></img>
+                        </div>
+                        <div className='texto-img'>
+                            <h3>Gmail</h3>
+                            <p>Próximamente</p>
+                        </div>
+                    </div>
+                    <div className='rrss'>
+                        <a href='https://www.instagram.com/andy.grciia' target='_blank' rel='noopener noreferrer' className='img-card'>
+                            <img src={instagramRrss} alt='Gmail' />
+                        </a>
+                        <div className='texto-img'>
+                            <h3>Instagram</h3>
+                            <p>@andy.grciia</p>
+                        </div>
+                    </div>
+                    <div className='rrss'>
+                        <div className='img-card'>
+                            <img src={discordRrss}></img>
+                        </div>
+                        <div className='texto-img'>
+                            <h3>Discord</h3>
+                            <p>kiminatsy7</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </section>
     );
 }
