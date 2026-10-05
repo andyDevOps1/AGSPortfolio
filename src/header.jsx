@@ -8,45 +8,38 @@ import uiUxIcon from './assets/ui-ux.svg'
 import './header.css'
 
 function Header() {
-    const [loading, setLoading] = useState(true)
+    const [imageLoaded, setImageLoaded] = useState(false)
+    const [minimumTimePassed, setMinimumTimePassed] = useState(false)
 
+    // La pantalla de carga dura como mínimo 3 segundos
     useEffect(() => {
         const timer = setTimeout(() => {
-            setLoading(false)
-        }, 2000)
+            setMinimumTimePassed(true)
+        }, 3000)
 
         return () => clearTimeout(timer)
     }, [])
 
+    // Solo desaparece cuando han pasado 3s y el fondo está cargado
+    const pageReady = minimumTimePassed && imageLoaded
+
     return (
         <section className="hero-banner">
 
-            {/* Pantalla de carga */}
-            <div className={`hero-loader ${!loading ? 'hero-loader--hidden' : ''}`}>
-                <img
-                    src={ags_logo}
-                    alt="AGS Software Engineering"
-                    className="loader-logo"
-                />
-
-                <div className="loader-bar">
-                    <div className="loader-bar-progress"></div>
-                </div>
-            </div>
-
-            {/* Imagen de fondo */}
+            {/* Fondo */}
             <img
                 className="hero-background"
                 src={agujeroImg}
                 alt=""
                 aria-hidden="true"
+                onLoad={() => setImageLoaded(true)}
             />
 
             {/* Logo */}
             <img
-                className="hero-logo"
                 src={ags_logo}
                 alt="AGS Software Engineering"
+                className="hero-logo"
             />
 
             {/* Navegación */}
@@ -57,14 +50,12 @@ function Header() {
                 <a href="#contacto">Contacto</a>
             </nav>
 
-            {/* Contenido principal */}
+            {/* Contenido */}
             <div className="hero-content">
                 <h1>Andy García Sánchez</h1>
-
                 <p>Ingeniería de Software</p>
 
                 <div className="hero-tags">
-
                     <span>
                         <img src={bbddIcon} alt="" />
                         Bases de datos
@@ -84,7 +75,21 @@ function Header() {
                         <img src={uiUxIcon} alt="" />
                         UI/UX
                     </span>
+                </div>
+            </div>
 
+            {/* Pantalla de carga */}
+            <div className={`hero-loader ${pageReady ? 'hero-loader--hidden' : ''}`}>
+                <div className="loader-content">
+                    <img
+                        src={ags_logo}
+                        alt=""
+                        className="loader-logo"
+                    />
+
+                    <div className="loader-bar">
+                        <div className="loader-bar-progress" />
+                    </div>
                 </div>
             </div>
 
