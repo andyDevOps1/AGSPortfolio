@@ -1,5 +1,5 @@
 import './about.css';
-import fotoPerfil from './assets/fotoPerfil.jpg';
+import fotoPerfil from './assets/fotoPerfil.jpeg';
 import ubicacion from './assets/ubicacion.png';
 import universidad from './assets/universidad.png';
 import informatica from './assets/informatica.png';
