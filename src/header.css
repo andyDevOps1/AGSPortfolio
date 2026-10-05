@@ -8,15 +8,148 @@
     background:#000;
 }
 
-/* Video */
+/* Imagen de fondo */
 
-.hero-video{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
+.hero-background {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+}
+
+/* =========================
+   PANTALLA DE CARGA
+   ========================= */
+
+.hero-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgb(10, 25, 48) 0%,
+            rgb(4, 9, 18) 45%,
+            rgb(2, 5, 10) 100%
+        );
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+
+/* Cuando el vídeo está preparado */
+
+.hero-loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* Logo central */
+
+.loader-logo {
+    width: clamp(150px, 20vw, 230px);
+    object-fit: contain;
+
+    animation: loaderPulse 1.6s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 15px rgba(35, 150, 255, 0.35))
+        drop-shadow(0 0 35px rgba(35, 110, 255, 0.15));
+}
+
+
+.loader-logo {
+    width: clamp(150px, 20vw, 230px);
+    object-fit: contain;
+
+    animation: logoEntrance 1s cubic-bezier(.16, 1, .3, 1) forwards;
+
+    filter:
+        drop-shadow(0 0 15px rgba(35, 150, 255, 0.35))
+        drop-shadow(0 0 35px rgba(35, 110, 255, 0.15));
+}
+
+@keyframes logoEntrance {
+
+    from {
+        opacity: 0;
+        transform: scale(0.88);
+        filter:
+            drop-shadow(0 0 5px rgba(35, 150, 255, 0))
+            drop-shadow(0 0 10px rgba(35, 110, 255, 0));
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter:
+            drop-shadow(0 0 18px rgba(35, 150, 255, 0.45))
+            drop-shadow(0 0 40px rgba(35, 110, 255, 0.20));
+    }
+}
+
+
+/* Línea inferior */
+
+.loader-bar {
+    width: 150px;
+    height: 2px;
+
+    margin-top: 30px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border-radius: 20px;
+}
+
+
+.loader-bar-progress {
+    width: 40%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #25a9ff,
+        #ffffff,
+        #25a9ff,
+        transparent
+    );
+
+    animation: loaderMove 1.2s ease-in-out infinite;
+}
+
+
+@keyframes loaderMove {
+
+    from {
+        transform: translateX(-120%);
+    }
+
+    to {
+        transform: translateX(350%);
+    }
 }
 
 /* Oscurece ligeramente el vídeo */
